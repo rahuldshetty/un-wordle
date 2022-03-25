@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url('https://media.istockphoto.com/vectors/paper-grid-vector-id1188363744?k=20&m=1188363744&s=612x612&w=0&h=MkrlPUHK0NUVw3BSd_NXsCxITFLkUIw5xoUIvuMBkyU=');
 }
 
 code {

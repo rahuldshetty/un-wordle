@@ -1,13 +1,7 @@
 import { useEffect, useState } from "react";
-import data from "./data";
 
-const GuessWordList = (props) => { 
-    const [state, setState] = useState({
-        topWords:[],
-        includedChars: [],
-        excludedChars: [],
-        perfectChars: []
-    })
+
+const GuessWordList = (props) => {    
 
     const blockStyle = {
         color: "#090909",
@@ -35,11 +29,11 @@ const GuessWordList = (props) => {
 
     return <div>
         <div style={blockStyle}>
-            <p>BEST GUESS</p>
+            <p>TOP 5 BEST GUESSES</p>
         </div>
         <div style={innerStyle}>
-            {state.topWords.map((word)=>{
-                return <p>{word}</p>
+            {props.allState.topWords.map((word)=>{
+                return <p key={Math.random()}>{word}</p>
             })}
         </div>
     </div>
