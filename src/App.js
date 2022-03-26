@@ -76,11 +76,11 @@ const App = () => {
   } 
 
   const generateWords = (state) => {
-      console.log("State", state)
+      // console.log("State", state)
       let possibleWords = [];
 
       const allPossibleWords = data.filter((word)=>{
-          return word.length == 5
+          return word.length == 5 && (new Set(word).size) == 5
       })
 
       for(var i=0;i<allPossibleWords.length;i++){
@@ -120,16 +120,20 @@ const App = () => {
   }
 
   const updateWords=(state)=>{
-    const lastUpdatedRow = (state.texts.length - 2);
+    // const lastUpdatedRow = (state.texts.length - 2);
     let perfectChars=["", "", "", "", ""]
 
     // find characters that included
     let included=[];
     let excluded=[];
-    let lastWord = state.texts[lastUpdatedRow]
-    let cellStates = state.cellStates[lastUpdatedRow]
+    // let lastWord = state.texts[lastUpdatedRow]
+    // let cellStates = state.cellStates[lastUpdatedRow]
 
-    for(var i=0;i<lastWord.length;i++){
+    for(var jc=0;jc<state.texts.length-1;jc++){
+      let lastWord = state.texts[jc]
+      let cellStates = state.cellStates[jc]
+
+      for(var i=0;i<lastWord.length;i++){
         const ch = lastWord[i]
         const cell = cellStates[i]
         if(cell==0){
@@ -143,7 +147,9 @@ const App = () => {
         {
             perfectChars[i] = ch
         }
-    }    
+      }  
+    }  
+
 
     const newState = {
         includedChars: included,
